@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>skiprope</groupId>
+    <artifactId>profileservice</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <modules>
+        <module>api</module>
+        <module>entities</module>
+        <module>services</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <kumuluzee.version>3.0.0</kumuluzee.version>
+        <kumuluzee-cors.version>1.0.3</kumuluzee-cors.version>
+        <kumuluzee-openapi.version>1.0.0</kumuluzee-openapi.version>
+        <kumuluzee-rest.version>1.1.0</kumuluzee-rest.version>
+
+        <postgresql.version>42.2.5</postgresql.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.kumuluz.ee</groupId>
+                <artifactId>kumuluzee-bom</artifactId>
+                <version>${kumuluzee.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- modules -->
+            <dependency>
+                <groupId>skiprope</groupId>
+                <artifactId>api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>skiprope</groupId>
+                <artifactId>entities</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>skiprope</groupId>
+                <artifactId>services</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- kumuluzee -->
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <artifactId>kumuluzee-openapi</artifactId>
+                <version>${kumuluzee-openapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <artifactId>kumuluzee-openapi-ui</artifactId>
+                <version>${kumuluzee-openapi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.rest</groupId>
+                <artifactId>kumuluzee-rest-core</artifactId>
+                <version>${kumuluzee-rest.version}</version>
+            </dependency>
+
+            <!-- other -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.0</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
