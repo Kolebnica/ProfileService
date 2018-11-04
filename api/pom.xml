@@ -54,6 +54,12 @@
             <version>${kumuluzee-cors.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.kumuluz.ee.discovery</groupId>
+            <artifactId>kumuluzee-discovery-consul</artifactId>
+            <version>${kumuluzee-discovery.version}</version>
+        </dependency>
+
         <!-- other -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
