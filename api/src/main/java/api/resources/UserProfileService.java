@@ -20,13 +20,10 @@ import javax.ws.rs.core.Response;
 public class UserProfileService {
 
     @Inject
-    private UserBean userBean;
-
-    @Inject
     private Configurations configurations;
 
     @GET
-    @Path("/profile/{userId}")
+    @Path("{userId}")
     public Response getUserProfile(@PathParam("userId") int userId){
         User user = new User();
         if (configurations.getShowEmail())
@@ -37,7 +34,7 @@ public class UserProfileService {
         user.setName("Blazka");
         user.setPassword("123456");
         user.setSurrname("Blatnik");
-        user.setUsername("username123");
+        user.setUsername("username");
         return Response.ok(user).build();
     }
 }

@@ -20,13 +20,14 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <kumuluzee.version>2.5.0</kumuluzee.version>
+        <kumuluzee.version>3.0.0</kumuluzee.version>
         <kumuluzee-cors.version>1.0.3</kumuluzee-cors.version>
         <kumuluzee-openapi.version>1.0.0</kumuluzee-openapi.version>
         <kumuluzee-rest.version>1.1.0</kumuluzee-rest.version>
 
         <postgresql.version>42.2.5</postgresql.version>
         <kumuluzee-config.version>1.1.0</kumuluzee-config.version>
+        <kumuluzee-discovery.version>1.1.0</kumuluzee-discovery.version>
     </properties>
 
     <dependencyManagement>

@@ -35,6 +35,12 @@
             <version>2.5.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.kumuluz.ee.discovery</groupId>
+            <artifactId>kumuluzee-discovery-consul</artifactId>
+            <version>${kumuluzee-discovery.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

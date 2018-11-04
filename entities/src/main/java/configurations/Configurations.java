@@ -10,9 +10,13 @@ import javax.enterprise.context.ApplicationScoped;
 public class Configurations {
 
     @ConfigValue(watch = true)
-    private boolean showEmail;
+    private Boolean showEmail;
 
-    public boolean getShowEmail() {
+    public Boolean getShowEmail() {
         return showEmail;
+    }
+
+    public void setShowEmail(Boolean showEmail) {
+        this.showEmail = showEmail;
     }
 }
