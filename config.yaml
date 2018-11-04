@@ -16,6 +16,11 @@ kumuluzee:
     password: postgres
     max-pool-size: 10
 
+
+  discovery:
+    consul:
+      agent: http://192.168.99.100:8500
+
   config:
     consul:
       agent: http://192.168.99.100:8500
