@@ -33,7 +33,7 @@ public class UserProfileService {
         user.setId(userId);
         user.setName("Blazka");
         user.setPassword("123456");
-        user.setSurrname("Blatnik");
+        user.setSurname("Blatnik");
         user.setUsername("username");
         return Response.ok(user).build();
     }

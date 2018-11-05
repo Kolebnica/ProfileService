@@ -12,5 +12,5 @@ import javax.ws.rs.ApplicationPath;
 @OpenAPIDefinition(info = @Info(title = "SkipRope® API", version = "v1", contact = @Contact, license = @License))
 @ApplicationPath("api")
 @CrossOrigin(supportedMethods = "GET, POST, PUT, DELETE, HEAD, OPTIONS", exposedHeaders = "X-Total-Count, Content-Disposition, X-Export-Filename")
-@RegisterService(value = "profile-service", ttl = 20, pingInterval = 15, environment = "dev", version = "1.0.0", singleton = false)
+@RegisterService
 public class ResourceFrame extends javax.ws.rs.core.Application { }

@@ -5,7 +5,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import java.io.Serializable;
 
-@Entity(name = "user")
+@Entity(name = "users")
+@NamedQueries(value = {
+        @NamedQuery(name = "User.getByUsername", query = "SELECT u FROM users u WHERE u.username = :username")
+})
 public class User implements Serializable {
 
     @Id
@@ -16,8 +19,9 @@ public class User implements Serializable {
 
     private String name;
 
-    private String surrname;
+    private String surname;
 
+    @Column(unique = true)
     private String username;
 
     private String password;
@@ -41,12 +45,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getSurrname() {
-        return surrname;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setSurrname(String surrname) {
-        this.surrname = surrname;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public String getUsername() {
