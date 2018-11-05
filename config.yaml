@@ -13,7 +13,7 @@ kumuluzee:
   - jndi-name: jdbc/profileservice
     connection-url: jdbc:postgresql://192.168.99.100:5432/postgres
     username: postgres
-    password: postgres
+    password: skiprope
     max-pool-size: 10
 
 
