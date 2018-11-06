@@ -15,19 +15,8 @@ public class UserBean {
     private EntityManager em;
 
     @Transactional
-    public User setUser(User user) {
-        return null;
+    public User getUser(int id) {
+        return em.find(User.class, id);
     }
 
-    public User getUser(int userId){
-        User user = new User();
-        user.setEmail("rendom@email.io");
-        user.setId(userId);
-        user.setName("Blazka");
-        user.setPassword("123456");
-        user.setSurname("Blatnik");
-        user.setUsername("username123");
-
-        return user;
-    }
 }
