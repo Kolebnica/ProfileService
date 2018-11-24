@@ -1,21 +1,17 @@
 kumuluzee:
   name: profileservice
   version: 1.0.0
-
   env:
     name: dev
-
   server:
     http:
       port: 8081
-
   datasources:
   - jndi-name: jdbc/profileservice
     connection-url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: skiprope
-    max-pool-size: 10
-
+    max-pool-size: 1
 
   discovery:
     consul:

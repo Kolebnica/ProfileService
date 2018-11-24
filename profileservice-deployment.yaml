@@ -43,4 +43,6 @@ spec:
             value: fckauhpq
           - name: KUMULUZEE_DATASOURCES0_PASSWORD
             value: hH88MKljIGnHZ3jQYbQLt-C2qGzh-Qbx
+          - name: KUMULUZEE_DATASOURCES0_MAXPOOLSIZE
+            value: !!integer 1
         
