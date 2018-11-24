@@ -11,7 +11,7 @@ kumuluzee:
 
   datasources:
   - jndi-name: jdbc/profileservice
-    connection-url: jdbc:postgresql://postgres:5432/postgres
+    connection-url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: skiprope
     max-pool-size: 10
@@ -19,11 +19,11 @@ kumuluzee:
 
   discovery:
     consul:
-      agent: http:/consul:8500
+      agent: http://localhost:8500
 
   config:
     consul:
-      agent: http://consul:8500
+      agent: http://localhost:8500
 
 # Settings and configurations
 skiprope-configs:
