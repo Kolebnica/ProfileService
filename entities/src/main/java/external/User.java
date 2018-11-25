@@ -1,18 +1,12 @@
-package entities;
+package external;
 
-import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import java.io.Serializable;
 
-@Entity(name = "users")
-@NamedQueries(value = {
-        @NamedQuery(name = "User.getByUsername", query = "SELECT u FROM users u WHERE u.username = :username")
-})
+// Note: This is a copy of entities.User from UserService, with @Entity annotation and NamedQueries removed.
 public class User implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlID
     @XmlElement
     private int id;
@@ -21,13 +15,9 @@ public class User implements Serializable {
 
     private String surname;
 
-    @Column(unique = true)
     private String username;
 
-    private String password;
-
     private String email;
-
 
     public int getId() {
         return id;
@@ -59,14 +49,6 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getEmail() {
