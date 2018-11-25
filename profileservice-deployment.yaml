@@ -9,6 +9,7 @@ spec:
   - protocol: "TCP"
     port: 8081
     targetPort: 8081
+    nodePort: 30001
   type: NodePort
 ---
 apiVersion: apps/v1
@@ -38,11 +39,9 @@ spec:
           - name: KUMULUZEE_CONFIG_CONSUL_AGENT
             value: http://consul:8500
           - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
-            value: jdbc:postgresql://manny.db.elephantsql.com:5432/fckauhpq
+            value: jdbc:postgresql://postgresdb:5432/postgres
           - name: KUMULUZEE_DATASOURCES0_USERNAME
-            value: fckauhpq
+            value: postgres
           - name: KUMULUZEE_DATASOURCES0_PASSWORD
-            value: hH88MKljIGnHZ3jQYbQLt-C2qGzh-Qbx
-          - name: KUMULUZEE_DATASOURCES0_MAXPOOLSIZE
-            value: !!integer 1
+            value: skiprope
         
