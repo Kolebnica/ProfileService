@@ -12,6 +12,12 @@ kumuluzee:
     username: postgres
     password: skiprope
     max-pool-size: 2
+  health:
+    checks:
+      data-source-health-check:
+        jndi-name: jdbc/profileservice
+      disk-space-health-check:
+        threshold: 100000000
 
   discovery:
     consul:
@@ -23,6 +29,8 @@ kumuluzee:
 
 # Settings and configurations
 skiprope-configs:
+  health:
+    consul-url: http://localhost:8500/v1/status/leader
   show-email: True
 
 

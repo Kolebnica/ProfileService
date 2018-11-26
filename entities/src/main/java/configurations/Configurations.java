@@ -12,6 +12,9 @@ public class Configurations {
     @ConfigValue(watch = true)
     private Boolean showEmail;
 
+    @ConfigValue("health.consul-url")
+    private String consulHealthUrl;
+
     public Boolean getShowEmail() {
         return showEmail;
     }
@@ -19,4 +22,13 @@ public class Configurations {
     public void setShowEmail(Boolean showEmail) {
         this.showEmail = showEmail;
     }
+
+    public String getConsulHealthUrl() {
+        return consulHealthUrl;
+    }
+
+    public void setConsulHealthUrl(String consulHealthUrl) {
+        this.consulHealthUrl = consulHealthUrl;
+    }
+
 }

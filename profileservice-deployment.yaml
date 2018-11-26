@@ -44,4 +44,11 @@ spec:
             value: postgres
           - name: KUMULUZEE_DATASOURCES0_PASSWORD
             value: skiprope
-        
+          - name: SKIPROPECONFIGS_HEALTH_CONSULURL
+            value: http://consul:8500/v1/status/leader
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: server
+          initialDelaySeconds: 20
+          periodSeconds: 3
