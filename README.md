@@ -5,7 +5,9 @@ Service for managing user profile
 
 ## REST API
 
-Default port: **8081**  
+Default port: **8081**
+
+Accessing OpenAPI: [localhost:8081/api-specs/ui/?url=http://localhost:8081/api-specs/api/openapi.json](localhost:8081/api-specs/ui/?url=http://localhost:8081/api-specs/api/openapi.json)
 
 ## Config server
 
