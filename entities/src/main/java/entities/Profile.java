@@ -16,7 +16,6 @@ import java.util.List;
 public class Profile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlID
     @XmlElement
     private int id;

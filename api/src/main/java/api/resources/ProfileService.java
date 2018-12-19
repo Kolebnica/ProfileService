@@ -73,10 +73,16 @@ public class ProfileService {
                     @ApiResponse(responseCode = "201", description = "Profile created"),
                     @ApiResponse(responseCode = "409", description = "Conflict when trying to create profile"),
             },
-            requestBody = @RequestBody(content = {@Content(schema = @Schema(implementation = Profile.class))})
+            parameters = {
+                    @Parameter(name = "profileId", in = ParameterIn.PATH, required = true)
+            }
+            // requestBody = @RequestBody(content = {@Content(schema = @Schema(implementation = Profile.class))})
     )
     @POST
-    public Response createProfile(Profile profile) {
+    @Path("{profileId}")
+    public Response createProfile(@PathParam("profileId") int profileId) {
+        Profile profile = new Profile();
+        profile.setId(profileId);
         profile = profileBean.insertProfile(profile);
         if (profile == null) {
             return Response.status(Response.Status.CONFLICT).entity(profile).build();
