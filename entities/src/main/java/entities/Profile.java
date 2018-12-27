@@ -1,12 +1,9 @@
 package entities;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import external.User;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
 import java.util.List;
 
 @Entity(name = "profiles")
@@ -16,8 +13,6 @@ import java.util.List;
 public class Profile {
 
     @Id
-    @XmlID
-    @XmlElement
     private int id;
 
     @OneToMany(mappedBy = "profile")

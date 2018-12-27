@@ -10,8 +10,6 @@ import java.io.Serializable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User implements Serializable {
 
-    @XmlID
-    @XmlElement
     private int id;
 
     private String name;

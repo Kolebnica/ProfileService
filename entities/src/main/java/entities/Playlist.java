@@ -1,8 +1,8 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -11,12 +11,11 @@ public class Playlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @XmlID
-    @XmlElement
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "profile_id")
+    @JsonIgnoreProperties({"playlists"})
     private Profile profile;
 
     private String title;
