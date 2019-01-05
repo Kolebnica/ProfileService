@@ -1,8 +1,6 @@
 INSERT INTO profiles(id) VALUES(1)
 INSERT INTO profiles(id) VALUES(2)
 INSERT INTO profiles(id) VALUES(3)
-INSERT INTO profiles(id) VALUES(4)
-INSERT INTO profiles(id) VALUES(5)
 
 -- ALTER SEQUENCE profiles_id_seq RESTART WITH 6;
 
