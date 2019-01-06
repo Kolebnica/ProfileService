@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.ws.rs.client.WebTarget;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @ApplicationScoped
 public class UserServiceBean {
@@ -17,6 +18,7 @@ public class UserServiceBean {
 
     public User getUserProfile(int id) {
         // TODO get user detaild from UserService
+        Logger.getLogger("KARNEKI").severe("TUKI: " + profileServiceWebTarget.toString());
         if(profileServiceWebTarget.isPresent()) {
             WebTarget t = profileServiceWebTarget.get();
             return t.path("api/users/" + id).request().get(User.class);
