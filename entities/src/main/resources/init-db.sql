@@ -14,5 +14,5 @@ ALTER SEQUENCE playlists_id_seq RESTART WITH 4;
 
 --
 
-INSERT INTO playlists_songlist(playlists_id, songlist) VALUES(1, 1),(1, 2),(1, 3),(1, 4),(1, 5)
-INSERT INTO playlists_songlist(playlists_id, songlist) VALUES(2, 1),(2, 18),(2, 19),(2, 20)
+INSERT INTO playlists_songs(playlist_id, song_id) VALUES (1, 1),(1, 2),(1, 3),(1, 4),(1, 5)
+INSERT INTO playlists_songs(playlist_id, song_id) VALUES (2, 1),(2, 18),(2, 19),(2, 20)

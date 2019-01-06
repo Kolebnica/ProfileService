@@ -5,6 +5,7 @@
 
         <class>entities.Profile</class>
         <class>entities.Playlist</class>
+        <class>entities.PlaylistSong</class>
 
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
