@@ -4,7 +4,7 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p %marker %m %X %ex %n"/>
         </Console>
-        <Socket name="logstash" host="15398405-c4a4-4e88-b587-e80593ace71e-ls.logit.io"
+        <Socket name="logstash" host="7c25d11f-59cd-4fad-a03e-11fea2162e66-ls.logit.io"
                 port="13167" protocol="tcp">
             <JSONLayout complete="false" compact="true" eventEol="true" charset="UTF-8" properties="true"/>
         </Socket>
