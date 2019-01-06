@@ -2,8 +2,6 @@ package external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlID;
 import java.io.Serializable;
 
 // Note: This is a copy of entities.User from UserService, with @Entity annotation and NamedQueries removed.

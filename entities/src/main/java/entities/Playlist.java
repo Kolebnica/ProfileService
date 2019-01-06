@@ -26,8 +26,8 @@ public class Playlist {
 
     private Timestamp updated;
 
-    @ElementCollection
-    private List<Integer> songList;
+    @OneToMany(mappedBy = "playlist")
+    private List<PlaylistSong> playlistSongs;
 
     public int getId() {
         return id;
@@ -77,12 +77,7 @@ public class Playlist {
         this.updated = updated;
     }
 
-    public List<Integer> getSongList() {
-        return songList;
+    public List<PlaylistSong> getPlaylistSongs() {
+        return playlistSongs;
     }
-
-    public void setSongList(List<Integer> songList) {
-        this.songList = songList;
-    }
-
 }

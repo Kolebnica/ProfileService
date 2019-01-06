@@ -1,18 +1,18 @@
 package api.resources;
 
 import beans.crud.ProfileBean;
+import beans.external.SongServiceBean;
 import beans.external.UserServiceBean;
-import configurations.Configurations;
+import entities.Playlist;
+import entities.PlaylistSong;
 import entities.Profile;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import pojo.ResponseError;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -31,6 +31,8 @@ public class ProfileService {
     private ProfileBean profileBean;
     @Inject
     private UserServiceBean userServiceBean;
+    @Inject
+    private SongServiceBean songServiceBean;
 
     @Operation(
             summary = "Get profiles",
@@ -58,10 +60,19 @@ public class ProfileService {
     public Response getProfileById(@PathParam("profileId") int profileId) {
         Profile profile = profileBean.getProfile(profileId);
         if (profile == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.NOT_FOUND).entity(ResponseError.error404()).build();
         }
 
         profile.setUser(userServiceBean.getUserProfile(profile.getId()));
+
+        for(Playlist playlist : profile.getPlaylists()) {
+            for(PlaylistSong playlistSong : playlist.getPlaylistSongs()) {
+                // This could be optimized by making a SongService endpoint that would accept a list of song IDs and
+                // would return a list of songs (now it's a microservice call for each song)
+                playlistSong.setSong(songServiceBean.getSong(playlistSong.getSongId()));
+            }
+        }
+
         return Response.ok(profile).build();
     }
 
