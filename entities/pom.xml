@@ -32,6 +32,11 @@
             <artifactId>kumuluzee-cdi-weld</artifactId>
             <version>2.5.2</version>
         </dependency>
+        <dependency>
+            <artifactId>kumuluzee-config-consul</artifactId>
+            <groupId>com.kumuluz.ee.config</groupId>
+            <version>${kumuluzee-config.version}</version>
+        </dependency>
 
     </dependencies>
 

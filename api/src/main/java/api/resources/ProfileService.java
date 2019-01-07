@@ -3,6 +3,7 @@ package api.resources;
 import beans.crud.ProfileBean;
 import beans.external.SongServiceBean;
 import beans.external.UserServiceBean;
+import configurations.Configurations;
 import entities.Playlist;
 import entities.PlaylistSong;
 import entities.Profile;
@@ -33,6 +34,8 @@ public class ProfileService {
     private UserServiceBean userServiceBean;
     @Inject
     private SongServiceBean songServiceBean;
+    @Inject
+    private Configurations configurations;
 
     @Operation(
             summary = "Get profiles",
@@ -64,6 +67,10 @@ public class ProfileService {
         }
 
         profile.setUser(userServiceBean.getUserProfile(profile.getId()));
+        if (!configurations.getShowEmail()) {
+            profile.getUser().setEmail(null);
+        }
+
 
         for(Playlist playlist : profile.getPlaylists()) {
             for(PlaylistSong playlistSong : playlist.getPlaylistSongs()) {

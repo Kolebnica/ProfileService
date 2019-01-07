@@ -9,7 +9,7 @@ import javax.enterprise.context.ApplicationScoped;
 @ConfigBundle("skiprope-configs")
 public class Configurations {
 
-    @ConfigValue(watch = true)
+    @ConfigValue(value="show-email", watch = true)
     private Boolean showEmail;
 
     @ConfigValue("health.consul-url")

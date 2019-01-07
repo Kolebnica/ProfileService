@@ -1,6 +1,7 @@
 package external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
@@ -16,6 +17,7 @@ public class User implements Serializable {
 
     private String username;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String email;
 
     public int getId() {
