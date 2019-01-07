@@ -34,18 +34,22 @@ spec:
         ports:
         - containerPort: 8081
         env:
-          - name: KUMULUZEE_DISCOVERY_CONSUL_AGENT
-            value: http://consul:8500  
-          - name: KUMULUZEE_CONFIG_CONSUL_AGENT
-            value: http://consul:8500
+          - name: KUMULUZEE_DISCOVERY_ETCD_HOSTS
+            value: http://etcd:2379
+          - name: KUMULUZEE_CONFIG_ETCD_HOSTS
+            value: http://etcd:2379
           - name: KUMULUZEE_DATASOURCES0_CONNECTIONURL
             value: jdbc:postgresql://postgres-ps:5432/postgres
           - name: KUMULUZEE_DATASOURCES0_USERNAME
             value: postgres
           - name: KUMULUZEE_DATASOURCES0_PASSWORD
             value: skiprope
-          - name: SKIPROPECONFIGS_HEALTH_CONSULURL
-            value: http://consul:8500/v1/status/leader
+          - name: SKIPROPECONFIGS_HEALTH_ETCDURL
+            value: http://etcd:2379/health
+          - name: KUMULUZEE_SERVER_BASEURL
+            value: http://profileservice:8081
+          - name: KUMULUZEE_DISCOVERY_CLUSTER
+            value: skiprope
         livenessProbe:
           httpGet:
             path: /health

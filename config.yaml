@@ -4,6 +4,7 @@ kumuluzee:
   env:
     name: dev
   server:
+    base-url: http://localhost:8081
     http:
       port: 8081
   datasources:
@@ -20,17 +21,17 @@ kumuluzee:
         threshold: 100000000
 
   discovery:
-    consul:
-      agent: http://localhost:8500
+    etcd:
+      hosts: http://localhost:2379
 
   config:
-    consul:
-      agent: http://localhost:8500
+    etcd:
+      hosts: http://localhost:2379
 
 # Settings and configurations
 skiprope-configs:
   health:
-    consul-url: http://localhost:8500/v1/status/leader
+    etcd-url: http://localhost:2379/health
   show-email: True
 
 
