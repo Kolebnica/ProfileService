@@ -12,8 +12,8 @@ public class Configurations {
     @ConfigValue(value="show-email", watch = true)
     private Boolean showEmail;
 
-    @ConfigValue("health.consul-url")
-    private String consulHealthUrl;
+    @ConfigValue("health.etcd-url")
+    private String etcdHealthUrl;
 
     public Boolean getShowEmail() {
         return showEmail;
@@ -23,12 +23,12 @@ public class Configurations {
         this.showEmail = showEmail;
     }
 
-    public String getConsulHealthUrl() {
-        return consulHealthUrl;
+    public String getEtcdHealthUrl() {
+        return etcdHealthUrl;
     }
 
-    public void setConsulHealthUrl(String consulHealthUrl) {
-        this.consulHealthUrl = consulHealthUrl;
+    public void setEtcdHealthUrl(String etcdHealthUrl) {
+        this.etcdHealthUrl = etcdHealthUrl;
     }
 
 }

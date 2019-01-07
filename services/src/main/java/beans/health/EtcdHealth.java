@@ -13,26 +13,26 @@ import java.util.logging.Logger;
 
 @Health
 @ApplicationScoped
-public class ConsulHealth implements HealthCheck {
+public class EtcdHealth implements HealthCheck {
 
     @Inject
     private Configurations configurations;
 
-    private static final Logger LOG = Logger.getLogger(ConsulHealth.class.getSimpleName());
+    private static final Logger LOG = Logger.getLogger(EtcdHealth.class.getSimpleName());
 
     @Override
     public HealthCheckResponse call() {
         try {
 
-            HttpURLConnection connection = (HttpURLConnection) new URL(configurations.getConsulHealthUrl()).openConnection();
+            HttpURLConnection connection = (HttpURLConnection) new URL(configurations.getEtcdHealthUrl()).openConnection();
             connection.setRequestMethod("GET");
 
             if (connection.getResponseCode() == 200) {
-                return HealthCheckResponse.named(ConsulHealth.class.getSimpleName()).up().build();
+                return HealthCheckResponse.named(EtcdHealth.class.getSimpleName()).up().build();
             }
         } catch (Exception exception) {
             LOG.severe(exception.getMessage());
         }
-        return HealthCheckResponse.named(ConsulHealth.class.getSimpleName()).down().build();
+        return HealthCheckResponse.named(EtcdHealth.class.getSimpleName()).down().build();
     }
 }

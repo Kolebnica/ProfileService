@@ -11,10 +11,10 @@ Accessing OpenAPI: [localhost:8081/api-specs/ui/?url=http://localhost:8081/api-s
 
 ## Config server
 
-- Run server (opisano v paren projektu)  
-- Consul (dostopen na `localhost:8500`, če v nastavitvah ni navedeno drugače)
+- Run server (opisano v parent projektu)  
+- etcd (dostopen na `localhost:2379`, če v nastavitvah ni navedeno drugače)
 
-## Configurations and settings with [Consul](https://www.consul.io/)
+## Configurations and settings with etcd
 
 Dodaj new key/value (primer za show-email):
 - namespace (izpiše v konzoli): `environments/dev/services/profileservice/1.0.0/config/` +  
@@ -22,8 +22,6 @@ Dodaj new key/value (primer za show-email):
 - na koncu še ime spremenljivke: `show-email` 
 
 Cela pot je tako: `environments/dev/services/profileservice/1.0.0/config/skiprope-configs/show-email` 
-
-
 
 ## Making & running a Docker image
 
