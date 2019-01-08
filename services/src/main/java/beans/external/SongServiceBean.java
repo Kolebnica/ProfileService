@@ -16,7 +16,6 @@ public class SongServiceBean {
     private Optional<WebTarget> songServiceWebTarget;
 
     public Song getSong(int id) {
-        // TODO get user detaild from UserService
         if(songServiceWebTarget.isPresent()) {
             WebTarget t = songServiceWebTarget.get();
             return t.path("api/song/" + id).request().get(Song.class);

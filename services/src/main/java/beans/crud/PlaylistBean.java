@@ -31,7 +31,7 @@ public class PlaylistBean {
     public List<Playlist> getPlaylists() {
         TypedQuery<Playlist> q = em.createNamedQuery("Playlist.getPlaylists", Playlist.class);
         List<Playlist> l = q.getResultList();
-        em.refresh(q.getResultList());
+        for(Playlist p : l) em.refresh(p);
         return l;
     }
 
