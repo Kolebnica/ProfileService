@@ -15,6 +15,9 @@ public class Configurations {
     @ConfigValue("health.etcd-url")
     private String etcdHealthUrl;
 
+    @ConfigValue(value = "health.unhealthy", watch = true)
+    private boolean unhealthy;
+
     public Boolean getShowEmail() {
         return showEmail;
     }
@@ -31,4 +34,11 @@ public class Configurations {
         this.etcdHealthUrl = etcdHealthUrl;
     }
 
+    public boolean isUnhealthy() {
+        return unhealthy;
+    }
+
+    public void setUnhealthy(boolean unhealthy) {
+        this.unhealthy = unhealthy;
+    }
 }
