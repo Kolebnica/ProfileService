@@ -5,7 +5,6 @@ import entities.Profile;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -19,7 +18,7 @@ public class PlaylistBean {
     private EntityManager em;
 
     @Transactional
-    @Counted(name = "PlaylistBeanCall")
+    @Counted(name = "PlaylistBeanCall", monotonic = true)
     public Playlist getPlaylist(int id) {
         Playlist p = em.find(Playlist.class, id);
         if (p == null) return null;
@@ -28,7 +27,7 @@ public class PlaylistBean {
     }
 
     @Transactional
-    @Counted(name = "PlaylistBeanCall")
+    @Counted(name = "PlaylistBeanCall", monotonic = true)
     public List<Playlist> getPlaylists() {
         TypedQuery<Playlist> q = em.createNamedQuery("Playlist.getPlaylists", Playlist.class);
         List<Playlist> l = q.getResultList();
@@ -37,7 +36,7 @@ public class PlaylistBean {
     }
 
     @Transactional
-    @Counted(name = "PlaylistBeanCall")
+    @Counted(name = "PlaylistBeanCall", monotonic = true)
     public Playlist insertPlaylist(int profileId, Playlist playlist) {
         Profile profile = em.find(Profile.class, profileId);
         if (profile == null) return null;
@@ -53,7 +52,7 @@ public class PlaylistBean {
     }
 
     @Transactional
-    @Counted(name = "PlaylistBeanCall")
+    @Counted(name = "PlaylistBeanCall", monotonic = true)
     public Playlist updatePlaylist(int id, Playlist a) {
         Playlist existing = em.find(Playlist.class, id);
         if (existing == null) {
@@ -67,7 +66,7 @@ public class PlaylistBean {
     }
 
     @Transactional
-    @Counted(name = "PlaylistBeanCall")
+    @Counted(name = "PlaylistBeanCall", monotonic = true)
     public boolean deletePlaylist(int id) {
         Playlist a = em.find(Playlist.class, id);
         if (a == null) {

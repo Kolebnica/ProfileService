@@ -17,7 +17,7 @@ public class ProfileBean {
     private EntityManager em;
 
     @Transactional
-    @Counted(name = "ProfileBeanCall")
+    @Counted(name = "ProfileBeanCall", monotonic = true)
     public Profile getProfile(int id) {
         Profile p = em.find(Profile.class, id);
         if (p == null) return null;
@@ -26,7 +26,7 @@ public class ProfileBean {
     }
 
     @Transactional
-    @Counted(name = "ProfileBeanCall")
+    @Counted(name = "ProfileBeanCall", monotonic = true)
     public List<Profile> getProfiles() {
         TypedQuery<Profile> q = em.createNamedQuery("Profile.getProfiles", Profile.class);
         List<Profile> ps = q.getResultList();
@@ -35,7 +35,7 @@ public class ProfileBean {
     }
 
     @Transactional
-    @Counted(name = "ProfileBeanCall")
+    @Counted(name = "ProfileBeanCall", monotonic = true)
     public Profile insertProfile(Profile a) {
         try {
             em.persist(a);
@@ -47,7 +47,7 @@ public class ProfileBean {
     }
 
     @Transactional
-    @Counted(name = "ProfileBeanCall")
+    @Counted(name = "ProfileBeanCall", monotonic = true)
     public Profile updateProfile(int id, Profile a) {
         Profile existing = em.find(Profile.class, id);
         if (existing == null) {
@@ -61,7 +61,7 @@ public class ProfileBean {
     }
 
     @Transactional
-    @Counted(name = "ProfileBeanCall")
+    @Counted(name = "ProfileBeanCall", monotonic = true)
     public boolean deleteProfile(int id) {
         Profile a = em.find(Profile.class, id);
         if (a == null) {

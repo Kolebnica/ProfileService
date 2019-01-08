@@ -5,13 +5,11 @@ import entities.PlaylistSong;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.List;
 
 @ApplicationScoped
 public class PlaylistSongBean {
@@ -20,7 +18,7 @@ public class PlaylistSongBean {
     private EntityManager em;
 
     @Transactional
-    @Counted(name = "PlaylistSongBeanCall")
+    @Counted(name = "PlaylistSongBeanCall", monotonic = true)
     public PlaylistSong getPlaylistSong(int playlistId, int songId) {
         TypedQuery<PlaylistSong> q = em.createNamedQuery("PlaylistSong.getPlaylistSong", PlaylistSong.class)
                 .setParameter("playlistId", playlistId)
@@ -33,7 +31,7 @@ public class PlaylistSongBean {
     }
 
     @Transactional
-    @Counted(name = "PlaylistSongBeanCall")
+    @Counted(name = "PlaylistSongBeanCall", monotonic = true)
     public PlaylistSong insertPlaylistSong(int playlistId, int songId) {
         Playlist playlist = em.find(Playlist.class, playlistId);
         if (playlist == null) return null;
@@ -55,7 +53,7 @@ public class PlaylistSongBean {
     }
 
     @Transactional
-    @Counted(name = "PlaylistSongBeanCall")
+    @Counted(name = "PlaylistSongBeanCall", monotonic = true)
     public boolean deletePlaylistSong(int playlistId, int songId) {
         TypedQuery<PlaylistSong> q = em.createNamedQuery("PlaylistSong.getPlaylistSong", PlaylistSong.class)
                 .setParameter("playlistId", playlistId)
