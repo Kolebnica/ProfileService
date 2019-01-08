@@ -26,7 +26,7 @@ import javax.ws.rs.core.Response;
 @Path("profiles")
 @ApplicationScoped
 @Tags(value = @Tag(name = "profiles"))
-public class ProfileService {
+public class ProfileResource {
 
     @Inject
     private ProfileBean profileBean;
