@@ -7,6 +7,9 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Entity(name = "playlists")
+@NamedQueries(value = {
+        @NamedQuery(name = "Playlist.getPlaylists", query = "SELECT p FROM playlists p")
+})
 public class Playlist {
 
     @Id
@@ -26,7 +29,7 @@ public class Playlist {
 
     private Timestamp updated;
 
-    @OneToMany(mappedBy = "playlist")
+    @OneToMany(mappedBy = "playlist", cascade = {CascadeType.REMOVE})
     private List<PlaylistSong> playlistSongs;
 
     public int getId() {

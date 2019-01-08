@@ -1,13 +1,18 @@
 package entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import external.Song;
 
 import javax.persistence.*;
 
 @Entity(name = "playlists_songs")
+@NamedQueries(value = {
+        @NamedQuery(name = "PlaylistSong.getPlaylistSong", query = "SELECT p FROM playlists_songs p WHERE p.songId = :songId AND p.playlist.id = :playlistId")
+})
+@Table(uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"song_id", "playlist_id"})
+})
 public class PlaylistSong {
 
     @Id

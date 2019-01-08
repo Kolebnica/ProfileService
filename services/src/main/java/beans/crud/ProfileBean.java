@@ -4,7 +4,6 @@ import entities.Profile;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -17,15 +16,22 @@ public class ProfileBean {
     @PersistenceContext(unitName = "sr-jpa")
     private EntityManager em;
 
+    @Transactional
     @Counted(name = "ProfileBeanCall")
     public Profile getProfile(int id) {
-        return em.find(Profile.class, id);
+        Profile p = em.find(Profile.class, id);
+        if (p == null) return null;
+        em.refresh(p);
+        return p;
     }
 
+    @Transactional
     @Counted(name = "ProfileBeanCall")
     public List<Profile> getProfiles() {
         TypedQuery<Profile> q = em.createNamedQuery("Profile.getProfiles", Profile.class);
-        return q.getResultList();
+        List<Profile> ps = q.getResultList();
+        em.refresh(ps);
+        return ps;
     }
 
     @Transactional

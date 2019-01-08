@@ -15,7 +15,7 @@ public class Profile {
     @Id
     private int id;
 
-    @OneToMany(mappedBy = "profile")
+    @OneToMany(mappedBy = "profile", cascade = {CascadeType.REFRESH})
     private List<Playlist> playlists;
 
     @Transient
