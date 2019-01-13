@@ -2,6 +2,7 @@ package api.resources;
 
 import beans.crud.PlaylistBean;
 import beans.external.SongServiceBean;
+import com.kumuluz.ee.logs.cdi.Log;
 import entities.Playlist;
 import entities.PlaylistSong;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,6 +27,7 @@ import javax.ws.rs.core.Response;
 @Path("playlists")
 @ApplicationScoped
 @Tags(value = @Tag(name = "playlists"))
+@Log
 public class PlaylistResource {
 
     @Inject

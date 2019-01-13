@@ -3,6 +3,7 @@ package api.resources;
 import beans.crud.ProfileBean;
 import beans.external.SongServiceBean;
 import beans.external.UserServiceBean;
+import com.kumuluz.ee.logs.cdi.Log;
 import configurations.Configurations;
 import entities.Playlist;
 import entities.PlaylistSong;
@@ -26,6 +27,7 @@ import javax.ws.rs.core.Response;
 @Path("profiles")
 @ApplicationScoped
 @Tags(value = @Tag(name = "profiles"))
+@Log
 public class ProfileResource {
 
     @Inject
